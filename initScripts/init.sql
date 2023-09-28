@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `khalid` DEFAULT CHARACTER SET utf8 COLLATE utf8_g
 GO
 USE `khalid`;
 GO
-CREATE TABLE `tests` (
+CREATE TABLE IF NOT EXISTS `tests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   `results` varchar(30) NOT NULL,
