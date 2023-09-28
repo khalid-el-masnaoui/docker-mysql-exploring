@@ -5,6 +5,13 @@ SHELL ["/bin/bash", "-c"]
 RUN chmod 1777 /tmp
 RUN  apt-get update -y && apt-get install -y procps
 
+#assign the created user same UID AND GUID OF the host for the mounted dir owner
+ARG UID
+ARG GID
+
+RUN usermod -u $UID mysql
+RUN groupmod -g $GID mysql
+
 # Add a database
 ENV MYSQL_DATABASE khalid
 ENV MYSQL_ROOT_PASSWORD secret
