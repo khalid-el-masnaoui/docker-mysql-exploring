@@ -22,4 +22,9 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 3306
 
+RUN chown -R mysql:mysql /var/lib/mysql/
+
+# Define mountable directories
+VOLUME ["/var/lib/mysql"]
+
 user mysql
