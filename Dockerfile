@@ -24,7 +24,7 @@ EXPOSE 3306
 
 RUN chown -R mysql:mysql /var/lib/mysql
 
-user mysql
+USER mysql
 
 # Define mountable directories
 VOLUME ["/var/lib/mysql"]
