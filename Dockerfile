@@ -11,4 +11,8 @@ ENV MYSQL_ROOT_PASSWORD secret
 
 COPY ./initScripts/ /docker-entrypoint-initdb.d/
 
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 EXPOSE 3306
+
+user mysql
