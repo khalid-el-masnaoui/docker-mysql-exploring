@@ -63,7 +63,7 @@ skip_name_resolve                   = 1
 disable_log_bin                     = 1
 sync_binlog                         = 0
 thread_cache_size                   = 20
-#lower_case_table_names              =1
+#lower_case_table_names              =1 #u can set this option after the first run -- then restart the mysqld service with the new value
 
 
 join_buffer_size                    = 262K
