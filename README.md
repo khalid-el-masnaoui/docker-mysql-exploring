@@ -3,7 +3,7 @@
 ## _Custom mysql image with presistent data storage_
 
 Exploring docker by creating custom mysql image with presistent data storage, and mapping the container user UID with the host UID to make shared files (via volumes) accessibles.
-The image will init a custom script (inside initScripts folder) to create a database and a table and insert some dummy data.
+The image will init a custom script (inside initScripts folder) to create a database,a table and insert some dummy data.
 
 
 ## MYSQL Configurations :gear:
