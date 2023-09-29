@@ -22,7 +22,7 @@ cd docker-mysql-exploring
 mkdir logs
 
 #image build
-docker build . -t cs-mysql -f Dockerfile -build-arg="UID=$(id -u)" --build-arg="GID=$(id -g)"
+docker build . -t cs-mysql -f Dockerfile --build-arg="UID=$(id -u)" --build-arg="GID=$(id -g)"
 ```
 
 This will create the custom mysql image and pull-in/install the necessary dependencies and extensions.
