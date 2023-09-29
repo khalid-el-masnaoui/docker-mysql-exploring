@@ -17,6 +17,7 @@ ENV MYSQL_DATABASE khalid
 ENV MYSQL_ROOT_PASSWORD secret
 
 COPY ./initScripts/ /docker-entrypoint-initdb.d/
+COPY ./configurations/custom.cnf /etc/mysql/conf.d/
 
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -24,8 +25,13 @@ EXPOSE 3306
 
 RUN chown -R mysql:mysql /var/lib/mysql
 
+#logs
+RUN install -o mysql -g mysql -d /var/log/mysql && \
+    install -o mysql -g mysql /dev/null /var/log/mysql/error.log && \
+    install -o mysql -g mysql /dev/null /var/log/mysql/slow.log
+
 USER mysql
 
 # Define mountable directories
-VOLUME ["/var/lib/mysql"]
+VOLUME ["/var/lib/mysql", "/etc/mysql/conf.d", "/var/log/mysql"]
 
