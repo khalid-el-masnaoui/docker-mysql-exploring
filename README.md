@@ -18,8 +18,6 @@ build the image.
 
 ```sh
 cd docker-mysql-exploring
-#create logs directory since it is mounted to the container (or you can use --volume instead of --mount option and the logs folder will be created automatically on the local host)
-mkdir logs
 
 #image build
 docker build . -t cs-mysql -f Dockerfile --build-arg="UID=$(id -u)" --build-arg="GID=$(id -g)"
