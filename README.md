@@ -16,11 +16,18 @@ By default, the Docker will expose ports 3306/tcp for port mappings, so change t
 Dockerfile if necessary. When ready, simply use the Dockerfile to
 build the image.
 
-```sh
-cd docker-mysql-exploring
+#####  Installation  :electric_plug:
+Clone this repository and follow the simple steps:
+
+```bash
+# clone
+$ git clone git@github.com:khalid-el-masnaoui/docker-mysql-exploring.git
+
+#cd into the working diretcory
+$ cd docker-mysql-exploring
 
 #image build
-docker build . -t cs-mysql -f Dockerfile --build-arg="UID=$(id -u)" --build-arg="GID=$(id -g)"
+$ docker build . -t cs-mysql -f Dockerfile --build-arg="UID=$(id -u)" --build-arg="GID=$(id -g)"
 ```
 
 This will create the custom mysql image and pull-in/install the necessary dependencies and extensions.
@@ -31,7 +38,7 @@ port 3306 of the Docker (or whatever port was exposed in the Dockerfile):
 
 ```sh
 #running the container container
-docker run --rm  -p 3306:3306 --name mysql --mount type=volume,source=mysql-cs-data,destination=/var/lib/mysql --mount type=bind,source=./configurations,destination=/etc/mysql/conf.d --mount type=bind,source=./logs,destination=/var/log/mysql cs-mysql
+$ docker run --rm  -p 3306:3306 --name mysql --mount type=volume,source=mysql-cs-data,destination=/var/lib/mysql --mount type=bind,source=./configurations,destination=/etc/mysql/conf.d --mount type=bind,source=./logs,destination=/var/log/mysql cs-mysql
 
 #the bind mounts are for developement purposes
 ```
